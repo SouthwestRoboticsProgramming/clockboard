@@ -80,12 +80,7 @@ def make_api_request():
     data = response.json()
     print(data)
     return data
-    #if response.status_code == 200:
-    #    data = response.json()
-    #    return data
-    #else:
-    #    print("API request failed:", response.status_code)
-    #    return None
+
 
 def main():
     # Connect to Wi-Fi
