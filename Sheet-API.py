@@ -1,3 +1,5 @@
+##to start api service: gunicorn -b 127.0.0.1:5132 -w 4 sheet_api:app --daemon
+
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from flask import Flask, jsonify
