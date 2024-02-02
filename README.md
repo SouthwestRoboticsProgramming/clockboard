@@ -1,1 +1,1 @@
-uses remote-gpio and multiple pi zero-w's. one (master) pi for monitoring buttons and sending data to the spreadsheet, and another (slave) pi just for controlling leds. the master connects to the slave using mdns
+uses a pi pico w for controlling leds and a pi zero 2 w for interfacing.
