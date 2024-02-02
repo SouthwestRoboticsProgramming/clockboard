@@ -199,19 +199,6 @@ def is_clocked_in(name):
         if api_data["data"][21] == "Not Clocked In":
             return False
 
-
-# Monitor button presses and handle clock in/out actions
-#def but1():
-#    action = "Clock Out" if is_clocked_in("Mason") else "Clock In"
-#    add_row(datetime.now().strftime("%Y-%m-%d %H:%M:%S"), action, "Mason")
-#    print("button1 pressed")
-
-
-#while True:
-#    if button1.is_pressed:
-#        print("Button is pressed")
-#    else:
-#        print("Button is not pressed")
 while True:
     if button1.is_pressed:
         action = "Clock Out" if is_clocked_in("Mason") else "Clock In"
