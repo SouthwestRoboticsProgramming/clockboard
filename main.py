@@ -257,6 +257,7 @@ while True:
     if button19.is_pressed:
         action = "Clock Out" if is_clocked_in("Dash") else "Clock In"
         add_row(datetime.now().strftime("%Y-%m-%d %H:%M:%S"), action, "Dash")
+        print("dash")
     if button20.is_pressed:
         action = "Clock Out" if is_clocked_in("Eddie") else "Clock In"
         add_row(datetime.now().strftime("%Y-%m-%d %H:%M:%S"), action, "Eddie")
