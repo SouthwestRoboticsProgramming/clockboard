@@ -12,7 +12,6 @@ sheet_id = '1xnXJfhz5oLGKoT2hyJWT-4kWI0T1CIj0-TTeNxeKMFQ'
 json_key_file = '/creds/service_account.json'
 API_URL = "http://api.henriserverack.com/get_sheet_data"
 
-print("Loaded credentials")
 # Specify GPIO pins for buttons and LEDs
 
 ##set 1 (left?)
@@ -75,6 +74,7 @@ SCOPES = ['https://spreadsheets.google.com/feeds',
 credentials = Credentials.from_service_account_file(json_key_file, scopes=SCOPES)
 gc = gspread.authorize(credentials)
 worksheet = gc.open_by_key(sheet_id).sheet1
+print("Loaded credentials")
 
 def make_api_request():
     response = requests.get(API_URL)  # Use authorized session
@@ -257,7 +257,6 @@ while True:
     if button19.is_pressed:
         action = "Clock Out" if is_clocked_in("Dash") else "Clock In"
         add_row(datetime.now().strftime("%Y-%m-%d %H:%M:%S"), action, "Dash")
-        print("dash")
     if button20.is_pressed:
         action = "Clock Out" if is_clocked_in("Eddie") else "Clock In"
         add_row(datetime.now().strftime("%Y-%m-%d %H:%M:%S"), action, "Eddie")
