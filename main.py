@@ -6,11 +6,13 @@ from gpiozero import Button
 from datetime import datetime, date
 import requests  # Typo corrected from "urequets"
 
+print("Loaded modules")
 # Replace with your Google Sheet ID and JSON key file path
 sheet_id = '1xnXJfhz5oLGKoT2hyJWT-4kWI0T1CIj0-TTeNxeKMFQ'
 json_key_file = '/creds/service_account.json'
 API_URL = "http://api.henriserverack.com/get_sheet_data"
 
+print("Loaded credentials")
 # Specify GPIO pins for buttons and LEDs
 
 ##set 1 (left?)
