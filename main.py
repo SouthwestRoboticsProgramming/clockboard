@@ -202,7 +202,7 @@ def is_clocked_in(name):
 while True:
     if button1.is_pressed:
         action = "Clock Out" if is_clocked_in("Mason") else "Clock In"
-        add_row(datetime.now().strftime("%Y-%m-%d %H:%M:%S"), action, "Mason")
+        add_row(datetime.now().strftime("%Y/%m/%d %H:%M:%S"), action, "Mason")
     if button2.is_pressed:
         action = "Clock Out" if is_clocked_in("Cameron") else "Clock In"
         add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Cameron")
