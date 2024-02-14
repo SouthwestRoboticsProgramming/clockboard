@@ -202,67 +202,67 @@ def is_clocked_in(name):
 while True:
     if button1.is_pressed:
         action = "Clock Out" if is_clocked_in("Mason") else "Clock In"
-        add_row(datetime.now().strftime("%Y/%m/%d %H:%M:%S"), action, "Mason")
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Mason")
     if button2.is_pressed:
         action = "Clock Out" if is_clocked_in("Cameron") else "Clock In"
         add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Cameron")
     if button3.is_pressed:
         action = "Clock Out" if is_clocked_in("Jack") else "Clock In"
-        add_row(datetime.now().strftime("%Y/%m/%d %H:%M:%S"), action, "Jack")
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Jack")
     if button4.is_pressed:
         action = "Clock Out" if is_clocked_in("Jerry") else "Clock In"
-        add_row(datetime.now().strftime("%Y/%m/%d %H:%M:%S"), action, "Jerry")
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Jerry")
     if button5.is_pressed:
         action = "Clock Out" if is_clocked_in("Henri K") else "Clock In"
-        add_row(datetime.now().strftime("%Y/%m/%d %H:%M:%S"), action, "Henri K")
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Henri K")
     if button6.is_pressed:
         action = "Clock Out" if is_clocked_in("Nathan") else "Clock In"
-        add_row(datetime.now().strftime("%Y/%m/%d %H:%M:%S"), action, "Nathan")
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Nathan")
     if button7.is_pressed:
         action = "Clock Out" if is_clocked_in("Ki Bae") else "Clock In"
-        add_row(datetime.now().strftime("%Y/%m/%d %H:%M:%S"), action, "Ki Bae")
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Ki Bae")
     if button8.is_pressed:
         action = "Clock Out" if is_clocked_in("Lael") else "Clock In"
-        add_row(datetime.now().strftime("%Y/%m/%d %H:%M:%S"), action, "Lael")
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Lael")
     if button9.is_pressed:
         action = "Clock Out" if is_clocked_in("Clark") else "Clock In"
-        add_row(datetime.now().strftime("%Y/%m/%d %H:%M:%S"), action, "Clark")
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Clark")
     if button10.is_pressed:
         action = "Clock Out" if is_clocked_in("Ryan") else "Clock In"
-        add_row(datetime.now().strftime("%Y/%m/%d %H:%M:%S"), action, "Ryan")
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Ryan")
     if button11.is_pressed:
         action = "Clock Out" if is_clocked_in("Will") else "Clock In"
-        add_row(datetime.now().strftime("%Y/%m/%d %H:%M:%S"), action, "Will")
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Will")
     if button12.is_pressed:
         action = "Clock Out" if is_clocked_in("Henry N") else "Clock In"
-        add_row(datetime.now().strftime("%Y/%m/%d %H:%M:%S"), action, "Henry N")
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Henry N")
     if button13.is_pressed:
         action = "Clock Out" if is_clocked_in("Haley") else "Clock In"
-        add_row(datetime.now().strftime("%Y/%m/%d %H:%M:%S"), action, "Haley")
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Haley")
     if button14.is_pressed:
         action = "Clock Out" if is_clocked_in("Anders") else "Clock In"
-        add_row(datetime.now().strftime("%Y/%m/%d %H:%M:%S"), action, "Anders")
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Anders")
     if button15.is_pressed:
         action = "Clock Out" if is_clocked_in("Victor") else "Clock In"
-        add_row(datetime.now().strftime("%Y/%m/%d %H:%M:%S"), action, "Victor")
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Victor")
     if button16.is_pressed:
         action = "Clock Out" if is_clocked_in("Finn") else "Clock In"
-        add_row(datetime.now().strftime("%Y/%m/%d %H:%M:%S"), action, "Finn")
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Finn")
     if button17.is_pressed:
         action = "Clock Out" if is_clocked_in("Sam") else "Clock In"
-        add_row(datetime.now().strftime("%Y/%m/%d %H:%M:%S"), action, "Sam")
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Sam")
     if button18.is_pressed:
         action = "Clock Out" if is_clocked_in("Leah") else "Clock In"
-        add_row(datetime.now().strftime("%Y/%m/%d %H:%M:%S"), action, "Leah")
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Leah")
     if button19.is_pressed:
         action = "Clock Out" if is_clocked_in("Dash") else "Clock In"
-        add_row(datetime.now().strftime("%Y/%m/%d %H:%M:%S"), action, "Dash")
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Dash")
     if button20.is_pressed:
         action = "Clock Out" if is_clocked_in("Eddie") else "Clock In"
-        add_row(datetime.now().strftime("%Y/%m/%d %H:%M:%S"), action, "Eddie")
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Eddie")
     if button21.is_pressed:
         action = "Clock Out" if is_clocked_in("Shepard") else "Clock In"
-        add_row(datetime.now().strftime("%Y/%m/%d %H:%M:%S"), action, "Shepard")
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Shepard")
     if button22.is_pressed:
         action = "Clock Out" if is_clocked_in("Alena") else "Clock In"
-        add_row(datetime.now().strftime("%Y/%m/%d %H:%M:%S"), action, "Alena")
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Alena")
