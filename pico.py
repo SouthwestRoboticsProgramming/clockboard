@@ -26,30 +26,55 @@ API_URL = "http://api.henriserverack.com/get_sheet_data"
 
 #headers = {"user-agent": "blinka/1.0.0"}
 # Replace this with the GPIO pin number where your LED is connected
-led1 = digitalio.DigitalInOut(board.GP28)
+led1 = digitalio.DigitalInOut(board.GP0)
 led1.direction = digitalio.Direction.OUTPUT
-led2 = digitalio.DigitalInOut(board.GP27)
+led2 = digitalio.DigitalInOut(board.GP1)
 led2.direction = digitalio.Direction.OUTPUT
-led3 = digitalio.DigitalInOut(board.GP26)
+led3 = digitalio.DigitalInOut(board.GP2)
 led3.direction = digitalio.Direction.OUTPUT
-led4 = digitalio.DigitalInOut(board.GP22)
+led4 = digitalio.DigitalInOut(board.GP3)
 led4.direction = digitalio.Direction.OUTPUT
-led5 = digitalio.DigitalInOut(board.GP21)
+led5 = digitalio.DigitalInOut(board.GP4)
 led5.direction = digitalio.Direction.OUTPUT
-led6 = digitalio.DigitalInOut(board.GP20)
+led6 = digitalio.DigitalInOut(board.GP5)
 led6.direction = digitalio.Direction.OUTPUT
+led7 = digitalio.DigitalInOut(board.GP6)
+led7.direction = digitalio.Direction.OUTPUT
+led8 = digitalio.DigitalInOut(board.GP7)
+led8.direction = digitalio.Direction.OUTPUT
+led9 = digitalio.DigitalInOut(board.GP8)
+led9.direction = digitalio.Direction.OUTPUT
+led10 = digitalio.DigitalInOut(board.GP9)
+led10.direction = digitalio.Direction.OUTPUT
+led11 = digitalio.DigitalInOut(board.GP10)
+led11.direction = digitalio.Direction.OUTPUT
+led12 = digitalio.DigitalInOut(board.GP11)
+led12.direction = digitalio.Direction.OUTPUT
+led13 = digitalio.DigitalInOut(board.GP12)
+led13.direction = digitalio.Direction.OUTPUT
+led14 = digitalio.DigitalInOut(board.GP13)
+led14.direction = digitalio.Direction.OUTPUT
+led15 = digitalio.DigitalInOut(board.GP14)
+led15.direction = digitalio.Direction.OUTPUT
+led16 = digitalio.DigitalInOut(board.GP15)
+led16.direction = digitalio.Direction.OUTPUT
+led17 = digitalio.DigitalInOut(board.GP16)
+led17.direction = digitalio.Direction.OUTPUT
+led18 = digitalio.DigitalInOut(board.GP17)
+led18.direction = digitalio.Direction.OUTPUT
+led19 = digitalio.DigitalInOut(board.GP18)
+led19.direction = digitalio.Direction.OUTPUT
+led20 = digitalio.DigitalInOut(board.GP19)
+led20.direction = digitalio.Direction.OUTPUT
+led21 = digitalio.DigitalInOut(board.GP20)
+led21.direction = digitalio.Direction.OUTPUT
+led22 = digitalio.DigitalInOut(board.GP21)
+led22.direction = digitalio.Direction.OUTPUT
 
 
 def control_led(api_data):
-    #data2 = json.loads(api_data)
-    #print(api_data[0])
-    #print(api_data["data"][0])
-    #if api_data and api_data[0] == "Clocked In":
     clocked_in = api_data["data"]
     if api_data["data"][0] == "Clocked In":
-        #print(api_data["data"][0])
-        #print("om")
-        # Turn on the LED
         led1.value = True
     if api_data["data"][0] == "Not Clocked In":
         led1.value = False
@@ -73,6 +98,75 @@ def control_led(api_data):
         led6.value = True
     if api_data["data"][5] == "Not Clocked In":
         led6.value = False
+    if api_data["data"][6] == "Clocked In":
+        led7.value = True
+    if api_data["data"][6] == "Not Clocked In":
+        led7.value = False
+    if api_data["data"][7] == "Clocked In":
+        led8.value = True
+    if api_data["data"][7] == "Not Clocked In":
+        led8.value = False
+    if api_data["data"][8] == "Clocked In":
+        led9.value = True
+    if api_data["data"][8] == "Not Clocked In":
+        led9.value = False
+    if api_data["data"][9] == "Clocked In":
+        led10.value = True
+    if api_data["data"][9] == "Not Clocked In":
+        led10.value = False
+    if api_data["data"][10] == "Clocked In":
+        led11.value = True
+    if api_data["data"][10] == "Not Clocked In":
+        led11.value = False
+    if api_data["data"][11] == "Clocked In":
+        led12.value = True
+    if api_data["data"][11] == "Not Clocked In":
+        led12.value = False
+    if api_data["data"][12] == "Clocked In":
+        led13.value = True
+        print("haley")
+    if api_data["data"][12] == "Not Clocked In":
+        led13.value = False
+    if api_data["data"][13] == "Clocked In":
+        led14.value = True
+    if api_data["data"][13] == "Not Clocked In":
+        led14.value = False
+    if api_data["data"][14] == "Clocked In":
+        led15.value = True
+        print("victor")
+    if api_data["data"][14] == "Not Clocked In":
+        led15.value = False
+    if api_data["data"][15] == "Clocked In":
+        led16.value = True
+    if api_data["data"][15] == "Not Clocked In":
+        led16.value = False
+    if api_data["data"][16] == "Clocked In":
+        led17.value = True
+    if api_data["data"][16] == "Not Clocked In":
+        led17.value = False
+    if api_data["data"][17] == "Clocked In":
+        led18.value = True
+    if api_data["data"][17] == "Not Clocked In":
+        led18.value = False
+    if api_data["data"][18] == "Clocked In":
+        led19.value = True
+    if api_data["data"][18] == "Not Clocked In":
+        led19.value = False
+    if api_data["data"][19] == "Clocked In":
+        led20.value = True
+    if api_data["data"][19] == "Not Clocked In":
+        led20.value = False
+    if api_data["data"][20] == "Clocked In":
+        led21.value = True
+    if api_data["data"][20] == "Not Clocked In":
+        led21.value = False
+    if api_data["data"][21] == "Clocked In":
+        led22.value = True
+    if api_data["data"][21] == "Not Clocked In":
+        led22.value = False
+
+
+
 
 def make_api_request():
     response = requests.get(API_URL)
@@ -81,26 +175,7 @@ def make_api_request():
     print(data)
     return data
 
-
 def main():
-    # Connect to Wi-Fi
-    ##wlan = connect_wifi()
-    #  connect to your SSID
-    #print()
-    #print("Connecting to WiFi")
-    #wifi.radio.connect("southwest-wireless", "southwwifi000")
-    #print("Connected to WiFi")
-    #pool = socketpool.SocketPool(wifi.radio)
-    #try:
-    #    #connect_wifi()
-    #    if wifi.radio.connected:
-    #        print("Connected to WiFi!")
-    #    else:
-    #        print("WiFi connection failed")
-    #        return
-    #except Exception as e:
-    #    print("Error connecting to WiFi:", e)
-    #    return
     while True:
         try:
             # Make API request
@@ -112,10 +187,6 @@ def main():
             time.sleep(2)  # Adjust the delay as needed
 
         except Exception as e:
-            #response = requests.get(url=API_URL)
-            #print(response)
-            #print("Error:", e)
-            #print(api_data[1])
             print("lol")
             time.sleep(10)
 
