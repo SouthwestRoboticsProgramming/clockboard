@@ -124,7 +124,6 @@ def control_led(api_data):
         led12.value = False
     if api_data["data"][12] == "Clocked In":
         led13.value = True
-        print("haley")
     if api_data["data"][12] == "Not Clocked In":
         led13.value = False
     if api_data["data"][13] == "Clocked In":
@@ -133,7 +132,6 @@ def control_led(api_data):
         led14.value = False
     if api_data["data"][14] == "Clocked In":
         led15.value = True
-        print("victor")
     if api_data["data"][14] == "Not Clocked In":
         led15.value = False
     if api_data["data"][15] == "Clocked In":
