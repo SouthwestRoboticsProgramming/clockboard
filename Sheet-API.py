@@ -12,7 +12,7 @@ credentials = ServiceAccountCredentials.from_json_keyfile_name('service_account.
 gc = gspread.authorize(credentials)
 
 # Open the spreadsheet
-sheet = gc.open_by_key('1xnXJfhz5oLGKoT2hyJWT-4kWI0T1CIj0-TTeNxeKMFQ')  # Replace with your spreadsheet's key
+sheet = gc.open_by_key('1u2M_qIo_XLVv5HPKYmyX_ehruxVFECf8vmXNKnErk4U')  # Replace with your spreadsheet's key
 worksheet = sheet.worksheet('Data')  # Replace 'Sheet1' with the actual sheet name
 
 # Define the API endpoint
