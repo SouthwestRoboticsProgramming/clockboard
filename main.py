@@ -133,7 +133,7 @@ def is_clocked_in(name):
             return True
         if api_data["data"][8] == "Not Clocked In":
             return False
-    if name == "Ryan":
+    if name == "Rain":
         if api_data["data"][9] == "Clocked In":
             return True
         if api_data["data"][9] == "Not Clocked In":
@@ -228,8 +228,8 @@ while True:
         action = "Clock Out" if is_clocked_in("Clark") else "Clock In"
         add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Clark")
     if button10.is_pressed:
-        action = "Clock Out" if is_clocked_in("Ryan") else "Clock In"
-        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Ryan")
+        action = "Clock Out" if is_clocked_in("Rain") else "Clock In"
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Rain")
     if button11.is_pressed:
         action = "Clock Out" if is_clocked_in("Will") else "Clock In"
         add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Will")
