@@ -53,14 +53,14 @@ define_button( 0,  2, "Mason")
 define_button( 1,  3, "Cameron")
 define_button( 2,  4, "Jonah")
 define_button( 3, 17, "Jerry")
-define_button( 4, 27, "Henri "),
+define_button( 4, 27, "Henri K")
 define_button( 5, 22, "Liam")
-define_button( 6, 10, "Ki Ba"),
+define_button( 6, 10, "Ki Bae")
 define_button( 7,  9, "Oliver")
 define_button( 8, 11, "Clark")
 define_button( 9,  5, "Rain")
 define_button(10,  6, "Malcom")
-define_button(11, 13, "Henry "),
+define_button(11, 13, "Henry N")
 define_button(12, 19, "Auggie")
 define_button(13, 26, "Anders")
 define_button(14, 14, "Victor")
