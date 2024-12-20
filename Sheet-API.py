@@ -13,10 +13,10 @@ gc = gspread.authorize(credentials)
 
 # Open the spreadsheet
 sheet = gc.open_by_key('1u2M_qIo_XLVv5HPKYmyX_ehruxVFECf8vmXNKnErk4U')  # Replace with your spreadsheet's key
-worksheet = sheet.worksheet('Data')  # Replace 'Sheet1' with the actual sheet name
+worksheet = sheet.worksheet('Data')
 
 # Define the API endpoint
-@app.route('/get_sheet_data')  # Assuming you're using Flask for the API
+@app.route('/get_sheet_data') 
 def get_sheet_data():
     values = worksheet.range('J2:J23')  # Fetch values from cells J2 to J23
     data = [cell.value for cell in values]  # Extract values into a list
