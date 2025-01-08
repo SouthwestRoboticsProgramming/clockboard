@@ -18,8 +18,12 @@ worksheet = sheet.worksheet('Data')
 # Define the API endpoint
 @app.route('/get_sheet_data') 
 def get_sheet_data():
-    values = worksheet.range('J2:J23')  # Fetch values from cells J2 to J23
-    data = [cell.value for cell in values]  # Extract values into a list
-    return jsonify({'data': data})  # Return the data as JSON
+    try:
+        values = worksheet.range('J2:J23')  # Fetch values from cells J2 to J23
+        data = [cell.value for cell in values]  # Extract values into a list
+        return jsonify({'data': data})  # Return the data as JSON
+    except:
+        gspread.exceptions.APIError
+        return("API error (probably got rate limited)")
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5210)
