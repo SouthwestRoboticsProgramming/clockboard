@@ -12,10 +12,8 @@ import socketpool
 print()
 print("Connecting to WiFi")
 
-#  connect to your SSID
+#connect to wifi
 wifi.radio.connect("southwest-wireless", "southwwifi000")
-
-#print("Connected to WiFi")
 
 pool = socketpool.SocketPool(wifi.radio)
 
@@ -24,8 +22,7 @@ requests = adafruit_requests.Session(pool)
 # Replace this with the URL of your API
 API_URL = "http://api.henriserverack.com/get_sheet_data"
 
-#headers = {"user-agent": "blinka/1.0.0"}
-# Replace this with the GPIO pin number where your LED is connected
+#define where leds are connected
 led1 = digitalio.DigitalInOut(board.GP0)
 led1.direction = digitalio.Direction.OUTPUT
 led2 = digitalio.DigitalInOut(board.GP1)
@@ -168,7 +165,6 @@ def control_led(api_data):
 
 def make_api_request():
     response = requests.get(API_URL)
-    #print(response)
     data = response.json()
     print(data)
     return data
@@ -180,12 +176,10 @@ def main():
             api_data = make_api_request()
             # Control LED based on API data
             control_led(api_data)
-
-            # Wait for some time before the next request
-            time.sleep(2)  # Adjust the delay as needed
+            time.sleep(2)
 
         except Exception as e:
-            print("lol")
+            print("failure, trying again in 10 seconds...")
             time.sleep(10)
 
 if __name__ == "__main__":

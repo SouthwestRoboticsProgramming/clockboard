@@ -4,7 +4,7 @@ from google.auth.transport.requests import AuthorizedSession
 import gspread
 from gpiozero import Button
 from datetime import datetime, date
-import requests  # Typo corrected from "urequets"
+import requests
 
 print("Loaded modules")
 # Replace with your Google Sheet ID and JSON key file path
@@ -12,10 +12,9 @@ sheet_id = '1u2M_qIo_XLVv5HPKYmyX_ehruxVFECf8vmXNKnErk4U'
 json_key_file = '/creds/service_account.json'
 API_URL = "http://api.henriserverack.com/get_sheet_data"
 
-# Specify GPIO pins for buttons and LEDs
 
 ##set 1 (left?)
-button1_pin = 2  # Adjust pin numbers as needed
+button1_pin = 2
 button2_pin = 3
 button3_pin = 4
 button4_pin = 17
