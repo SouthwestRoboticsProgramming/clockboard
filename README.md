@@ -15,6 +15,6 @@ tbd
 
 ## !! DOES NOT CURRENTLY WORK !! ##
 
-Will also have to rewire buttons into a matrix and rewrite main.py for that (please keep in python if possible, running a c++ program as a debian service is evil)
+Will also have to rewire buttons into a matrix and rewrite main.py for that (hopefully can stay in python because c++ as a debian service sounds terrible)
 
-Also Also have to implement led logic on pi zero 2 w
+Also Also have to implement led logic on pi zero 2 w (could probably roll all of this into main.py)
