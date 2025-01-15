@@ -1,6 +1,6 @@
 import serial
 
-port_name = "/dev/ttyUSB0"
+port_name = "/dev/serial0"
 port_baud = 115200
 
 pico_serial = serial.Serial(port_name, port_baud)
