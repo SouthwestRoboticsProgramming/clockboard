@@ -43,7 +43,7 @@ def scan_buttons(press_queue, stop_event):
         print("This script must be run as superuser")
 
     # FIXME: I don't know whether this should be BOARD or BCM
-    GPIO.setmode(GPIO.BOARD)
+    GPIO.setmode(GPIO.BCM)
 
     for pin in button_row_pins:
         GPIO.setup(pin, GPIO.IN)
