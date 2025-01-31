@@ -4,18 +4,17 @@ from google.auth.transport.requests import AuthorizedSession
 import gspread
 from gpiozero import Button
 from datetime import datetime, date
-import requests  # Typo corrected from "urequets"
+import requests
 
 print("Loaded modules")
 # Replace with your Google Sheet ID and JSON key file path
-sheet_id = '1xnXJfhz5oLGKoT2hyJWT-4kWI0T1CIj0-TTeNxeKMFQ'
+sheet_id = '1u2M_qIo_XLVv5HPKYmyX_ehruxVFECf8vmXNKnErk4U'
 json_key_file = '/creds/service_account.json'
 API_URL = "http://api.henriserverack.com/get_sheet_data"
 
-# Specify GPIO pins for buttons and LEDs
 
 ##set 1 (left?)
-button1_pin = 2  # Adjust pin numbers as needed
+button1_pin = 2
 button2_pin = 3
 button3_pin = 4
 button4_pin = 17
@@ -98,7 +97,7 @@ def is_clocked_in(name):
             return True
         if api_data["data"][1] == "Not Clocked In":
             return False
-    if name == "Jack":
+    if name == "Jonah":
         if api_data["data"][2] == "Clocked In":
             return True
         if api_data["data"][2] == "Not Clocked In":
@@ -113,7 +112,7 @@ def is_clocked_in(name):
             return True
         if api_data["data"][4] == "Not Clocked In":
             return False
-    if name == "Nathan":
+    if name == "Liam":
         if api_data["data"][5] == "Clocked In":
             return True
         if api_data["data"][5] == "Not Clocked In":
@@ -123,7 +122,7 @@ def is_clocked_in(name):
             return True
         if api_data["data"][6] == "Not Clocked In":
             return False
-    if name == "Lael":
+    if name == "Oliver":
         if api_data["data"][7] == "Clocked In":
             return True
         if api_data["data"][7] == "Not Clocked In":
@@ -133,12 +132,12 @@ def is_clocked_in(name):
             return True
         if api_data["data"][8] == "Not Clocked In":
             return False
-    if name == "Ryan":
+    if name == "Rain":
         if api_data["data"][9] == "Clocked In":
             return True
         if api_data["data"][9] == "Not Clocked In":
             return False
-    if name == "Will":
+    if name == "Malcom":
         if api_data["data"][10] == "Clocked In":
             return True
         if api_data["data"][10] == "Not Clocked In":
@@ -148,7 +147,7 @@ def is_clocked_in(name):
             return True
         if api_data["data"][11] == "Not Clocked In":
             return False
-    if name == "Haley":
+    if name == "Auggie":
         if api_data["data"][12] == "Clocked In":
             return True
         if api_data["data"][12] == "Not Clocked In":
@@ -173,12 +172,12 @@ def is_clocked_in(name):
             return True
         if api_data["data"][16] == "Not Clocked In":
             return False
-    if name == "Leah":
+    if name == "Neah":
         if api_data["data"][17] == "Clocked In":
             return True
         if api_data["data"][17] == "Not Clocked In":
             return False
-    if name == "Dash":
+    if name == "Sophia":
         if api_data["data"][18] == "Clocked In":
             return True
         if api_data["data"][18] == "Not Clocked In":
@@ -188,7 +187,7 @@ def is_clocked_in(name):
             return True
         if api_data["data"][19] == "Not Clocked In":
             return False
-    if name == "Shepard":
+    if name == "Sadie":
         if api_data["data"][20] == "Clocked In":
             return True
         if api_data["data"][20] == "Not Clocked In":
@@ -207,8 +206,8 @@ while True:
         action = "Clock Out" if is_clocked_in("Cameron") else "Clock In"
         add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Cameron")
     if button3.is_pressed:
-        action = "Clock Out" if is_clocked_in("Jack") else "Clock In"
-        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Jack")
+        action = "Clock Out" if is_clocked_in("Jonah") else "Clock In"
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Jonah")
     if button4.is_pressed:
         action = "Clock Out" if is_clocked_in("Jerry") else "Clock In"
         add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Jerry")
@@ -216,29 +215,29 @@ while True:
         action = "Clock Out" if is_clocked_in("Henri K") else "Clock In"
         add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Henri K")
     if button6.is_pressed:
-        action = "Clock Out" if is_clocked_in("Nathan") else "Clock In"
-        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Nathan")
+        action = "Clock Out" if is_clocked_in("Liam") else "Clock In"
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Liam")
     if button7.is_pressed:
         action = "Clock Out" if is_clocked_in("Ki Bae") else "Clock In"
         add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Ki Bae")
     if button8.is_pressed:
-        action = "Clock Out" if is_clocked_in("Lael") else "Clock In"
-        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Lael")
+        action = "Clock Out" if is_clocked_in("Oliver") else "Clock In"
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Oliver")
     if button9.is_pressed:
         action = "Clock Out" if is_clocked_in("Clark") else "Clock In"
         add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Clark")
     if button10.is_pressed:
-        action = "Clock Out" if is_clocked_in("Ryan") else "Clock In"
-        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Ryan")
+        action = "Clock Out" if is_clocked_in("Rain") else "Clock In"
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Rain")
     if button11.is_pressed:
-        action = "Clock Out" if is_clocked_in("Will") else "Clock In"
-        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Will")
+        action = "Clock Out" if is_clocked_in("Malcom") else "Clock In"
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Malcom")
     if button12.is_pressed:
         action = "Clock Out" if is_clocked_in("Henry N") else "Clock In"
         add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Henry N")
     if button13.is_pressed:
-        action = "Clock Out" if is_clocked_in("Haley") else "Clock In"
-        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Haley")
+        action = "Clock Out" if is_clocked_in("Auggie") else "Clock In"
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Auggie")
     if button14.is_pressed:
         action = "Clock Out" if is_clocked_in("Anders") else "Clock In"
         add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Anders")
@@ -252,17 +251,17 @@ while True:
         action = "Clock Out" if is_clocked_in("Sam") else "Clock In"
         add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Sam")
     if button18.is_pressed:
-        action = "Clock Out" if is_clocked_in("Leah") else "Clock In"
-        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Leah")
+        action = "Clock Out" if is_clocked_in("Neah") else "Clock In"
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Neah")
     if button19.is_pressed:
-        action = "Clock Out" if is_clocked_in("Dash") else "Clock In"
-        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Dash")
+        action = "Clock Out" if is_clocked_in("Sophia") else "Clock In"
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Sophia")
     if button20.is_pressed:
         action = "Clock Out" if is_clocked_in("Eddie") else "Clock In"
         add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Eddie")
     if button21.is_pressed:
-        action = "Clock Out" if is_clocked_in("Shepard") else "Clock In"
-        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Shepard")
+        action = "Clock Out" if is_clocked_in("Sadie") else "Clock In"
+        add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Sadie")
     if button22.is_pressed:
         action = "Clock Out" if is_clocked_in("Alena") else "Clock In"
         add_row(datetime.now().strftime("%m/%d/%Y %H:%M:%S"), action, "Alena")

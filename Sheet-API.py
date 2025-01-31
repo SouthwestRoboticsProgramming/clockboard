@@ -12,14 +12,18 @@ credentials = ServiceAccountCredentials.from_json_keyfile_name('service_account.
 gc = gspread.authorize(credentials)
 
 # Open the spreadsheet
-sheet = gc.open_by_key('1xnXJfhz5oLGKoT2hyJWT-4kWI0T1CIj0-TTeNxeKMFQ')  # Replace with your spreadsheet's key
-worksheet = sheet.worksheet('Data')  # Replace 'Sheet1' with the actual sheet name
+sheet = gc.open_by_key('1u2M_qIo_XLVv5HPKYmyX_ehruxVFECf8vmXNKnErk4U')
+worksheet = sheet.worksheet('Data')
 
 # Define the API endpoint
-@app.route('/get_sheet_data')  # Assuming you're using Flask for the API
+@app.route('/get_sheet_data') 
 def get_sheet_data():
-    values = worksheet.range('J2:J23')  # Fetch values from cells J2 to J23
-    data = [cell.value for cell in values]  # Extract values into a list
-    return jsonify({'data': data})  # Return the data as JSON
+    try:
+        values = worksheet.range('J2:J28')
+        data = [cell.value for cell in values]
+        return jsonify({'data': data})
+    except:
+        gspread.exceptions.APIError
+        return("API error (probably got rate limited)")
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
