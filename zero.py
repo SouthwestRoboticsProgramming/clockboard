@@ -3,12 +3,12 @@ import queue
 import time
 
 # Real sheet
-#sheet_id = "1u2M_qIo_XLVv5HPKYmyX_ehruxVFECf8vmXNKnErk4U"
-#sheets_key_file = "/creds/service_account.json"
+sheet_id = "1u2M_qIo_XLVv5HPKYmyX_ehruxVFECf8vmXNKnErk4U"
+sheets_key_file = "/creds/service_account.json"
 
 # Test sheet
-sheet_id = "1H6hMCbpaxb5Ts8yTO4nVpE3nqBfmG2kIDezKE0Cf5QQ"
-sheets_key_file = "../service_account.json"
+#sheet_id = "1H6hMCbpaxb5Ts8yTO4nVpE3nqBfmG2kIDezKE0Cf5QQ"
+#sheets_key_file = "../service_account.json"
 
 rows = 6
 cols = 5
