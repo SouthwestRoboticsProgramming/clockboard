@@ -14,8 +14,22 @@ const uint8_t ROWS = 6;
 const uint8_t COLS = 5;
 
 // These bits correspond to the GPIO pins
-const uint32_t ROWS_MASK = 0b00000111111;
-const uint32_t COLS_MASK = 0b11111000000;
+
+// PINOUTS:
+// Row 0: GP16
+// Row 1: GP17
+// Row 2: GP2
+// Row 3: GP3
+// Row 4: GP4
+// Row 5: GP5
+// Col 0: GP6
+// Col 1: GP7
+// Col 2: GP8
+// Col 3: GP9
+// Col 4: GP10
+
+const uint32_t ROWS_MASK = 0b110000000000111100; // GP16 = row 0, GP17 = row 1
+const uint32_t COLS_MASK = 0b000000011111000000;
 
 // All pins are outputs
 const uint32_t OUTPUTS_MASK = ROWS_MASK | COLS_MASK;
@@ -47,13 +61,25 @@ void setup() {
   gpio_init_mask(OUTPUTS_MASK);
   gpio_set_dir_out_masked(OUTPUTS_MASK);
   read_idx = -1;
+
+  Serial.begin();
+
+  // Serial1.setRX(22);
+  // Serial1.setTX(21);
+  Serial1.begin(115200);
+
+  // led_state[0] = 0b011111;
+  // led_state[1] = 0b101111;
+  // led_state[2] = 0b110111;
+  // led_state[3] = 0b111011;
+  // led_state[4] = 0b111101;
 }
 
 void loop() {
   // Read at most one byte per loop to minimize LEDs dimming while receiving
   // This code must be as fast as possible since it's outside the matrix loop
-  if (Serial.available()) {
-    uint8_t in = Serial.read();
+  if (Serial1.available()) {
+    uint8_t in = Serial1.read();
 
     // Check for start byte
     if (read_idx < 0 && (in & START_BIT) != 0) {
@@ -75,11 +101,13 @@ void loop() {
 
   // Display LEDs
   for (uint8_t column = 0; column < COLS; column++) {
-    uint32_t outputs = COL_OUTPUTS[column] | (led_state[column] & 0b111111);
+    uint32_t leds_u32 = led_state[column];
+    uint32_t outputs = COL_OUTPUTS[column] | (((leds_u32 & 0b000011) << 16) | (leds_u32 & 0b111100));
+    // uint32_t outputs = COL_OUTPUTS[column] | (led_state[column] & 0b111111);
     gpio_put_masked(OUTPUTS_MASK, outputs);
 
     // LED on time
-    busy_wait_us_32(PERSIST_MICROS);
+    delay(3);
   }
 
   // All LEDs off so last column isn't slightly brighter
