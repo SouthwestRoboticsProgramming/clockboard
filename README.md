@@ -1,12 +1,15 @@
 uses a pi pico w for controlling leds and a pi zero 2 w for interfacing.
 
 leds are now connected to pico in a matrix.
+buttons are connected to pi zero in a matrix (uses pull ups on the inputs because the pull downs werent behaving)
+
+Button pressed -> check clock in/out state of person -> change cached clock in/out state of person -> send updated clock in/out state to pico -> push changed state to google sheet
 
 for leds:
 Columns are negative, rows are positive
 GPIO:
-row 1: 0
-row 2: 1
+row 1: 16
+row 2: 17
 row 3: 2
 row 4: 3
 row 5: 4
@@ -36,10 +39,4 @@ column 3: 13
 column 4: 6
 column 5: 5
 
-
-
-## !! DOES NOT CURRENTLY WORK !! ##
-
-Will also have to rewire buttons into a matrix and rewrite main.py for that (hopefully can stay in python because c++ as a debian service sounds terrible)
-
-Also Also have to implement led logic on pi zero 2 w (could probably roll all of this into main.py)
+pico connected to pi zero over UART (pins 1 and 2 on the pico, pins 8 and 10 on the pi zero)
