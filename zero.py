@@ -8,7 +8,7 @@ import time
 
 # Test sheet
 sheet_id = "1H6hMCbpaxb5Ts8yTO4nVpE3nqBfmG2kIDezKE0Cf5QQ"
-sheets_key_file = "service_account.json"
+sheets_key_file = "../service_account.json"
 
 rows = 6
 cols = 5
@@ -20,7 +20,7 @@ button_scan_interval_ms = 10
 # Seconds between refreshing data from Sheets API
 # Rate limit is 60 read requests/min, so 10 seconds/request -> 6 requests/min
 # should be safe
-refresh_interval = 10
+refresh_interval = 5
 
 pico_port_name = "/dev/serial0"
 pico_port_baud = 115200
@@ -46,7 +46,7 @@ def scan_buttons(press_queue, stop_event):
     GPIO.setmode(GPIO.BCM)
 
     for pin in button_row_pins:
-        GPIO.setup(pin, GPIO.IN)
+        GPIO.setup(pin, GPIO.IN, GPIO.PUD_UP)
     for pin in button_col_pins:
         GPIO.setup(pin, GPIO.OUT)
 
@@ -56,13 +56,15 @@ def scan_buttons(press_queue, stop_event):
         pressed_buttons = []
         for col in range(cols):
             for i in range(cols):
-                GPIO.output(button_col_pins[i], i == col)
+                GPIO.output(button_col_pins[i], i != col)
                 
             time.sleep(button_scan_interval_ms / 1000.0)
             for row in range(rows):
-                if GPIO.input(button_row_pins[row]):
+                if not GPIO.input(button_row_pins[row]):
                     index = row + col * rows
                     pressed_buttons.append(index)
+
+        # print("Pressed buttons:", pressed_buttons)
 
         # Only handle presses if exactly one button is down
         # Prevents matrix ghosting by ignoring the problem
@@ -86,9 +88,10 @@ def get_clocked_in_from_sheet(sheet):
 def send_leds_to_pico(port, led_states):
     led_data = [pico_start_bit, 0, 0, 0, 0]
     for i in range(len(led_states)):
-        row = i % 5
-        col = i // 5
-        led_data[col] |= (1 << row)
+        row = i % 6
+        col = i // 6
+        if led_states[i]:
+            led_data[col] |= (1 << row)
 
     led_bytes = bytes(led_data)
     port.write(led_bytes)
@@ -153,6 +156,7 @@ def main():
         while True:
             try:
                 pressed_button = press_queue.get_nowait()
+                print("Pressed:", pressed_button)
                 if pressed_button >= len(clocked_in):
                     # No person for this button
                     continue
@@ -170,7 +174,7 @@ def main():
                 sheet.append_row([date_str, action, student_name], value_input_option="USER_ENTERED")
 
                 # Update cache
-                clocked_in[pressed_button] = not clocked_in
+                clocked_in[pressed_button] = not is_clocked_in
             except queue.Empty:
                 # Queue is empty
                 break
@@ -179,7 +183,7 @@ def main():
         if time.time() > next_cache_refresh:
             try:
                 clocked_in = get_clocked_in_from_sheet(sheet)
-                print("Cache refreshed from sheet:", clocked_in)
+                #print("Cache refreshed from sheet:", clocked_in)
             except Exception as e:
                 print("API Error:", e)
 
