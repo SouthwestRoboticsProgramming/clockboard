@@ -22,6 +22,11 @@ button_scan_interval_ms = 10
 # should be safe
 refresh_interval = 5
 
+# Seconds after pressing a button for which it will do nothing
+# Prevents issues from people pressing their button multiple times or bumping
+# others' buttons off
+bump_protection_time = 60
+
 pico_port_name = "/dev/serial0"
 pico_port_baud = 115200
 pico_start_bit = 0b10000000
@@ -142,6 +147,7 @@ def main():
     button_proc.start()
 
     next_cache_refresh = time.time() + refresh_interval
+    last_press_times = [time.time() - bump_protection_time] * len(student_names)
     
     print("Running...");
     while not should_stop:
@@ -160,6 +166,12 @@ def main():
                 if pressed_button >= len(clocked_in):
                     # No person for this button
                     continue
+
+                if time.time() - last_press_times[pressed_button] < bump_protection_time:
+                    # Duplicate press
+                    continue
+
+                last_press_times[pressed_button] = time.time()
 
                 student_name = student_names[pressed_button]
                 is_clocked_in = clocked_in[pressed_button]
