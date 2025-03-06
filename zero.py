@@ -176,6 +176,10 @@ def main():
                 student_name = student_names[pressed_button]
                 is_clocked_in = clocked_in[pressed_button]
 
+                # Sam is not allowed
+                if student_name == "Sam":
+                    continue
+                
                 if is_clocked_in:
                     action = "Clock Out"
                 else:
