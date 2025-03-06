@@ -183,10 +183,13 @@ def main():
                 print(action + ": " + student_name)
 
                 date_str = datetime.now().strftime("%m/%d/%Y %H:%M:%S")
-                sheet.append_row([date_str, action, student_name], value_input_option="USER_ENTERED")
-
-                # Update cache
-                clocked_in[pressed_button] = not is_clocked_in
+                try:
+                    sheet.append_row([date_str, action, student_name], value_input_option="USER_ENTERED")
+                    # Update cache
+                    clocked_in[pressed_button] = not is_clocked_in
+                except Exception as e:
+                    print("Failed to append row:", e)
+                    
             except queue.Empty:
                 # Queue is empty
                 break
