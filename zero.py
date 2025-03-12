@@ -37,7 +37,7 @@ student_names = [
     "Mason", "Cameron", "Jonah", "Jerry", "Henri K", "Liam",
     "Ki Bae", "Oliver", "Clark", "Rain", "Malcom", "Henry N",
     "Auggie", "Anders G", "Victor", "Finn", "Sam", "Neah",
-    "Sophia", "Eddie", "Sadie", "Alena", "Anders T", "Owen",
+    "Sophia", "Emily", "Sadie", "Alena", "Anders T", "Owen",
     "Anna", "Kaelan", "Drew"
 ]
 
